@@ -12,7 +12,7 @@
   --g1:#3d8c33;--g2:#62b94e;--g3:#9ad47e;
   --gpale:#eef9e7;--gborder:#c4e6b0;
   --cream:#fffef8;--warm:#fff9ee;
-  --peach:#f5a83c;--peach-pale:#fff4e0;
+  --peach:#f5a83c;
   --text:#1e2d1a;--text-mid:#2a3d20;--text-light:#3a5130;
   --white:#ffffff;
   --shadow:0 6px 28px rgba(80,150,60,0.13);
@@ -20,148 +20,119 @@
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Zen Maru Gothic',sans-serif;background:var(--cream);color:var(--text);line-height:1.75;overflow-x:hidden;}
-
-/* ── HERO ── */
 .hero{background:linear-gradient(145deg,#3d8c33 0%,#62b94e 55%,#9ad47e 100%);color:var(--white);padding:32px 28px 52px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.18) 1.5px,transparent 1.5px);background-size:22px 22px;pointer-events:none;}
 .hero-deco{position:absolute;top:12px;right:20px;display:flex;flex-direction:column;gap:4px;opacity:0.22;animation:sway 5s ease-in-out infinite;}
 .hero-deco svg{width:36px;height:36px;}
-@keyframes sway{0%,100%{transform:rotate(-4deg) translateY(0);}50%{transform:rotate(4deg) translateY(-6px);}}
+@keyframes sway{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg) translateY(-6px);}}
 .hero-inner{position:relative;max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:24px;}
 .hero-left{flex:1;}
-.hero-right{flex-shrink:0;}
 .hero-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.22);border:1.5px solid rgba(255,255,255,0.45);color:var(--white);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;padding:5px 16px;border-radius:999px;margin-bottom:14px;}
 .hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:600;letter-spacing:0.04em;line-height:1.25;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,0.15);}
 .hero h1 span{display:block;font-size:0.38em;font-weight:400;letter-spacing:0.3em;opacity:0.85;margin-bottom:4px;}
-.hero-sub{font-size:0.9rem;opacity:0.95;font-weight:500;line-height:1.85;}
+.hero-sub{font-size:0.9rem;font-weight:500;line-height:1.85;}
 .hero-price-box{background:var(--white);border-radius:var(--rl);padding:18px 26px;text-align:center;min-width:148px;box-shadow:0 6px 24px rgba(0,0,0,0.12);position:relative;}
-.hero-price-box::before{content:'🌿';position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:1.4rem;}
+.hero-price-box::before{content:'\U0001F33F';position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:1.4rem;}
 .hero-price-label{font-size:0.72rem;color:var(--text-mid);letter-spacing:0.08em;margin-bottom:4px;font-weight:500;}
 .hero-price-value{font-family:'Noto Serif JP',serif;font-size:2.1rem;font-weight:600;color:var(--g1);line-height:1.1;}
 .hero-price-unit{font-size:0.78rem;color:var(--text-light);margin-top:3px;}
 .hero-wave{position:absolute;bottom:-1px;left:0;right:0;height:28px;}
-
-/* ── PRODUCT STRIP ── */
-.product-strip{background:var(--white);border-bottom:2px dashed var(--gborder);padding:0 28px;display:flex;align-items:stretch;flex-wrap:wrap;max-width:100%;}
+.product-strip{background:var(--white);border-bottom:2px dashed var(--gborder);padding:0 28px;}
 .strip-inner{max-width:1160px;margin:0 auto;display:flex;align-items:stretch;flex-wrap:wrap;width:100%;}
-.strip-item{display:flex;flex-direction:column;justify-content:center;padding:12px 20px 12px 0;min-width:0;}
+.strip-item{display:flex;flex-direction:column;justify-content:center;padding:12px 20px 12px 0;}
 .strip-item+.strip-item{padding-left:20px;border-left:1.5px dashed var(--gborder);}
-.strip-label{font-size:0.67rem;color:var(--text-light);letter-spacing:0.06em;margin-bottom:2px;font-weight:500;}
+.strip-label{font-size:0.67rem;color:var(--text-light);margin-bottom:2px;font-weight:500;}
 .strip-value{font-size:0.88rem;font-weight:700;color:var(--text);white-space:nowrap;}
-.strip-features{margin-left:auto;display:flex;align-items:center;gap:16px;padding:10px 0;flex-wrap:wrap;}
-.strip-feature{display:flex;align-items:center;gap:4px;font-size:0.78rem;color:var(--text-mid);font-weight:500;}
-
-/* ── PAGE LAYOUT ── */
+.strip-features{margin-left:auto;display:flex;align-items:center;gap:16px;padding:10px 0;}
+.strip-feature{font-size:0.78rem;color:var(--text-mid);font-weight:500;}
 .page-wrap{padding:24px 28px 48px;max-width:1216px;margin:0 auto;}
 .page-layout{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;}
 .form-column{display:flex;flex-direction:column;gap:14px;}
-
-/* ── STEP CARDS ── */
 .step-card{background:var(--white);border-radius:var(--rl);box-shadow:var(--shadow);overflow:hidden;border:1.5px solid rgba(196,230,176,0.5);}
-.step-header{display:flex;align-items:center;gap:12px;padding:13px 20px;background:linear-gradient(135deg,var(--gpale) 0%,#f4fced 100%);border-bottom:1.5px solid var(--gborder);}
-.step-num{width:30px;height:30px;background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;box-shadow:0 3px 10px rgba(98,185,78,0.4);}
+.step-header{display:flex;align-items:center;gap:12px;padding:13px 20px;background:linear-gradient(135deg,var(--gpale),#f4fced);border-bottom:1.5px solid var(--gborder);}
+.step-num{width:30px;height:30px;background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;}
 .step-title{font-family:'Noto Serif JP',serif;font-size:0.97rem;font-weight:600;color:var(--g1);}
 .step-emoji{font-size:1rem;margin-left:auto;}
 .step-body{padding:18px 22px 20px;}
-
-/* ── ORDER CARDS ── */
-.order-card .step-header{background:linear-gradient(135deg,#f0f7fe 0%,#e8f4ff 100%);border-bottom-color:#bcd7f0;}
-.order-sym{width:32px;height:32px;background:linear-gradient(135deg,#4a90d9,#2c6fb5);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;flex-shrink:0;box-shadow:0 3px 10px rgba(70,140,210,0.4);}
+.order-card .step-header{background:linear-gradient(135deg,#f0f7fe,#e8f4ff);border-bottom-color:#bcd7f0;}
+.order-sym{width:32px;height:32px;background:linear-gradient(135deg,#4a90d9,#2c6fb5);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;flex-shrink:0;}
 .order-card .step-title{color:#2c6fb5;}
-.remove-btn{margin-left:auto;background:none;border:1.5px solid #e0b0b0;color:#c0392b;border-radius:999px;padding:3px 11px;font-size:0.75rem;font-weight:700;cursor:pointer;transition:background 0.15s,color 0.15s;font-family:'Zen Maru Gothic',sans-serif;}
-.remove-btn:hover{background:#fff0f0;border-color:#c0392b;}
-.add-order-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:var(--white);border:2.5px dashed var(--gborder);border-radius:var(--rl);color:var(--g1);font-family:'Zen Maru Gothic',sans-serif;font-size:0.93rem;font-weight:700;cursor:pointer;transition:background 0.2s,border-color 0.2s,transform 0.15s;letter-spacing:0.04em;}
-.add-order-btn:hover{background:var(--gpale);border-color:var(--g2);transform:translateY(-1px);}
-
-/* ── FORM ELEMENTS ── */
+.remove-btn{margin-left:auto;background:none;border:1.5px solid #e0b0b0;color:#c0392b;border-radius:999px;padding:3px 11px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;}
+.remove-btn:hover{background:#fff0f0;}
+.add-order-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:var(--white);border:2.5px dashed var(--gborder);border-radius:var(--rl);color:var(--g1);font-family:'Zen Maru Gothic',sans-serif;font-size:0.93rem;font-weight:700;cursor:pointer;transition:background 0.2s,border-color 0.2s;}
+.add-order-btn:hover{background:var(--gpale);border-color:var(--g2);}
 .form-group{margin-bottom:13px;}
 .form-group:last-child{margin-bottom:0;}
 label{display:block;font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:6px;}
 .required-badge{display:inline-block;background:linear-gradient(135deg,var(--g2),var(--g1));color:var(--white);font-size:0.61rem;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:5px;vertical-align:middle;}
 .optional-badge{display:inline-block;background:#e8e8e8;color:#999;font-size:0.61rem;font-weight:500;padding:2px 7px;border-radius:999px;margin-left:5px;vertical-align:middle;}
 .field-hint{font-size:0.76rem;color:var(--text-light);margin-top:4px;}
-input[type="text"],input[type="email"],input[type="tel"],input[type="date"],select,textarea{width:100%;padding:11px 15px;border:2px solid var(--gborder);border-radius:var(--r);font-family:'Zen Maru Gothic',sans-serif;font-size:0.93rem;color:var(--text);background:var(--warm);transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;outline:none;-webkit-appearance:none;appearance:none;}
-input:focus,select:focus,textarea:focus{border-color:var(--g2);background:var(--white);box-shadow:0 0 0 4px rgba(98,185,78,0.16);}
+input[type="text"],input[type="email"],input[type="tel"],input[type="date"],textarea{width:100%;padding:11px 15px;border:2px solid var(--gborder);border-radius:var(--r);font-family:'Zen Maru Gothic',sans-serif;font-size:0.93rem;color:var(--text);background:var(--warm);outline:none;-webkit-appearance:none;appearance:none;transition:border-color 0.2s,box-shadow 0.2s;}
+input:focus,textarea:focus{border-color:var(--g2);background:var(--white);box-shadow:0 0 0 4px rgba(98,185,78,0.16);}
 textarea{resize:vertical;min-height:82px;}
 .row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
 .mt-2{margin-top:14px;}
 .mb-0{margin-bottom:0 !important;}
 .flex-end{display:flex;align-items:flex-end;}
-
-/* ── KG STEPPER ── */
-.kg-stepper{display:flex;align-items:center;border:2px solid var(--gborder);border-radius:var(--r);overflow:hidden;background:var(--warm);transition:border-color 0.2s,box-shadow 0.2s;max-width:220px;}
+.kg-stepper{display:flex;align-items:center;border:2px solid var(--gborder);border-radius:var(--r);overflow:hidden;background:var(--warm);max-width:220px;}
 .kg-stepper:focus-within{border-color:var(--g2);box-shadow:0 0 0 4px rgba(98,185,78,0.16);}
-.kg-btn{background:none;border:none;width:44px;height:44px;font-size:1.4rem;color:var(--g1);cursor:pointer;transition:background 0.15s;flex-shrink:0;display:flex;align-items:center;justify-content:center;user-select:none;line-height:1;}
+.kg-btn{background:none;border:none;width:44px;height:44px;font-size:1.4rem;color:var(--g1);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;user-select:none;}
 .kg-btn:hover{background:var(--gpale);}
-.kg-btn:disabled{color:#ccc;cursor:not-allowed;background:none;}
+.kg-btn:disabled{color:#ccc;cursor:not-allowed;}
 .kg-display{flex:1;text-align:center;border:none;outline:none;background:transparent;font-family:'Zen Maru Gothic',sans-serif;font-size:1.3rem;font-weight:700;color:var(--g1);padding:0;min-width:40px;-moz-appearance:textfield;}
 .kg-display::-webkit-outer-spin-button,.kg-display::-webkit-inner-spin-button{-webkit-appearance:none;}
 .kg-unit{font-size:0.8rem;color:var(--text-light);padding-right:12px;font-weight:500;}
 .kg-presets{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;align-items:center;}
 .kg-preset-label{font-size:0.72rem;color:var(--text-light);font-weight:500;}
-.kg-preset-btn{border:2px solid var(--gborder);background:var(--warm);border-radius:999px;padding:3px 11px;font-size:0.76rem;color:var(--g1);cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;transition:background 0.15s,border-color 0.15s,transform 0.1s;}
-.kg-preset-btn:hover{background:var(--gpale);border-color:var(--g2);transform:scale(1.05);}
+.kg-preset-btn{border:2px solid var(--gborder);background:var(--warm);border-radius:999px;padding:3px 11px;font-size:0.76rem;color:var(--g1);cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;transition:background 0.15s,transform 0.1s;}
+.kg-preset-btn:hover{background:var(--gpale);border-color:var(--g2);}
 .kg-preset-btn.active{background:var(--gpale);border-color:var(--g2);}
-
-/* ── DELIVERY OPTIONS ── */
 .delivery-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.delivery-label{display:flex;align-items:center;gap:7px;border:2px solid var(--gborder);border-radius:var(--r);padding:10px 10px;cursor:pointer;transition:border-color 0.2s,background 0.2s,transform 0.15s;font-size:0.82rem;color:var(--text);background:var(--warm);font-weight:500;}
-.delivery-label:hover{border-color:var(--g2);background:var(--gpale);transform:translateY(-1px);}
+.delivery-label{display:flex;align-items:center;gap:7px;border:2px solid var(--gborder);border-radius:var(--r);padding:10px;cursor:pointer;font-size:0.82rem;color:var(--text);background:var(--warm);font-weight:500;transition:border-color 0.2s,background 0.2s;}
+.delivery-label:hover{border-color:var(--g2);background:var(--gpale);}
 .delivery-label:has(input:checked){border-color:#4a90d9;background:#f0f7fe;font-weight:700;color:#2c6fb5;}
 .delivery-label input[type="radio"]{width:15px;height:15px;accent-color:#4a90d9;flex-shrink:0;}
-.date-picker-wrap{max-height:0;overflow:hidden;transition:max-height 0.35s ease,opacity 0.3s ease,margin 0.3s ease;opacity:0;margin-top:0;}
+.date-picker-wrap{max-height:0;overflow:hidden;transition:max-height 0.35s ease,opacity 0.3s;opacity:0;margin-top:0;}
 .date-picker-wrap.open{max-height:120px;opacity:1;margin-top:12px;}
 .date-picker-inner{background:var(--gpale);border:2px solid var(--gborder);border-radius:var(--r);padding:13px 16px;}
 .date-picker-inner label{font-size:0.82rem;color:var(--g1);font-weight:700;margin-bottom:8px;}
 .date-picker-inner input[type="date"]{background:var(--white);}
-
-/* ── ZIP BUTTON ── */
-.zip-lookup-btn{width:100%;padding:11px 14px;border:2px solid var(--gborder);border-radius:var(--r);background:var(--warm);font-family:'Zen Maru Gothic',sans-serif;font-size:0.83rem;color:var(--g1);cursor:pointer;font-weight:700;transition:background 0.2s,border-color 0.2s,transform 0.15s;white-space:nowrap;}
-.zip-lookup-btn:hover{background:var(--gpale);border-color:var(--g2);transform:translateY(-1px);}
-
-/* ── ERROR ── */
+.zip-lookup-btn{width:100%;padding:11px 14px;border:2px solid var(--gborder);border-radius:var(--r);background:var(--warm);font-family:'Zen Maru Gothic',sans-serif;font-size:0.83rem;color:var(--g1);cursor:pointer;font-weight:700;white-space:nowrap;transition:background 0.2s;}
+.zip-lookup-btn:hover{background:var(--gpale);border-color:var(--g2);}
 .error-msg{color:#d63031;font-size:0.76rem;margin-top:5px;display:none;align-items:center;gap:4px;}
 .error-msg.show{display:flex;}
 input.invalid,textarea.invalid{border-color:#e74c3c !important;background:#fff8f8;}
-
-/* ── SUBMIT ── */
 .submit-wrap{display:flex;flex-direction:column;gap:10px;}
-.btn-submit{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:18px;background:linear-gradient(135deg,var(--g1) 0%,var(--g2) 60%,var(--g3) 100%);color:var(--white);border:none;border-radius:var(--rl);font-family:'Zen Maru Gothic',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0.06em;cursor:pointer;transition:opacity 0.2s,transform 0.2s,box-shadow 0.2s;box-shadow:0 6px 20px rgba(61,140,51,0.35);}
-.btn-submit:hover:not(:disabled){opacity:0.93;transform:translateY(-2px);box-shadow:0 10px 28px rgba(61,140,51,0.4);}
+.btn-submit{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:18px;background:linear-gradient(135deg,var(--g1),var(--g2) 60%,var(--g3));color:var(--white);border:none;border-radius:var(--rl);font-family:'Zen Maru Gothic',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:opacity 0.2s,transform 0.2s;box-shadow:0 6px 20px rgba(61,140,51,0.35);}
+.btn-submit:hover:not(:disabled){opacity:0.93;transform:translateY(-2px);}
 .btn-submit:disabled{opacity:0.5;cursor:not-allowed;}
 .btn-note{text-align:center;font-size:0.76rem;color:var(--text-light);}
 .spinner-svg{width:17px;height:17px;animation:spin 0.7s linear infinite;display:none;}
 @keyframes spin{to{transform:rotate(360deg);}}
-
-/* ── SIDEBAR ── */
 .sidebar{position:sticky;top:20px;display:flex;flex-direction:column;gap:16px;}
 .summary-panel{background:var(--white);border-radius:var(--rl);box-shadow:var(--shadow);border:1.5px solid rgba(196,230,176,0.5);overflow:hidden;}
-.summary-header{padding:13px 18px;background:linear-gradient(135deg,var(--gpale),#f4fced);border-bottom:1.5px solid var(--gborder);font-family:'Noto Serif JP',serif;font-size:0.93rem;font-weight:600;color:var(--g1);display:flex;align-items:center;gap:8px;}
+.summary-header{padding:13px 18px;background:linear-gradient(135deg,var(--gpale),#f4fced);border-bottom:1.5px solid var(--gborder);font-family:'Noto Serif JP',serif;font-size:0.93rem;font-weight:600;color:var(--g1);}
 .summary-body{padding:14px 18px;}
 .summary-order-row{padding:9px 0;border-bottom:1.5px dashed var(--gborder);font-size:0.83rem;}
 .summary-order-row:last-child{border-bottom:none;}
 .summary-order-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;}
 .summary-order-name{font-weight:700;color:#2c6fb5;font-size:0.82rem;}
-.summary-order-price{font-weight:700;color:var(--text);font-size:0.88rem;}
-.summary-order-detail{font-size:0.74rem;color:var(--text-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.summary-order-price{font-weight:700;font-size:0.88rem;}
+.summary-order-detail{font-size:0.74rem;color:var(--text-light);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .summary-total-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;background:var(--gpale);border-top:2px solid var(--gborder);}
 .summary-total-label{font-size:0.8rem;color:var(--text-mid);font-weight:600;}
 .summary-total-val{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:600;color:var(--g1);}
 .summary-shipping-note{font-size:0.7rem;color:var(--text-light);text-align:right;padding:6px 18px 10px;}
-
 .info-panel{background:var(--white);border-radius:var(--rl);box-shadow:var(--shadow);border:1.5px solid rgba(196,230,176,0.5);padding:16px 18px;}
 .info-panel-title{font-size:0.75rem;font-weight:700;color:var(--peach);letter-spacing:0.12em;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
 .info-panel-title::after{content:'';flex:1;height:1px;background:var(--gborder);}
 .info-row{display:flex;justify-content:space-between;font-size:0.82rem;padding:6px 0;border-bottom:1px dashed var(--gborder);}
 .info-row:last-child{border-bottom:none;}
 .info-label{color:var(--text-light);}
-.info-val{font-weight:700;color:var(--text);}
-
-/* ── THANKS ── */
-#thanks{display:none;background:var(--white);border-radius:var(--rl);box-shadow:var(--shadow);padding:52px 28px;text-align:center;border:1.5px solid rgba(196,230,176,0.5);animation:popUp 0.5s ease both;max-width:680px;margin:24px auto;}
-@keyframes popUp{from{opacity:0;transform:translateY(16px) scale(0.97);}to{opacity:1;transform:none;}}
-.thanks-icon{width:76px;height:76px;background:linear-gradient(135deg,var(--g3),var(--g2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 20px;box-shadow:0 6px 28px rgba(154,212,126,0.45);}
+.info-val{font-weight:700;}
+#thanks{display:none;background:var(--white);border-radius:var(--rl);box-shadow:var(--shadow);padding:52px 28px;text-align:center;border:1.5px solid rgba(196,230,176,0.5);max-width:680px;margin:24px auto;}
+.thanks-icon{width:76px;height:76px;background:linear-gradient(135deg,var(--g3),var(--g2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 20px;}
 #thanks h2{font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:600;color:var(--g1);margin-bottom:10px;}
 #thanks .thanks-msg{font-size:0.88rem;color:var(--text-mid);margin-bottom:28px;line-height:2.1;}
 .bank-box{background:var(--warm);border:2px solid var(--gborder);border-radius:var(--r);padding:24px;text-align:left;max-width:460px;margin:0 auto;}
@@ -170,14 +141,11 @@ input.invalid,textarea.invalid{border-color:#e74c3c !important;background:#fff8f
 .bank-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1.5px dashed var(--gborder);font-size:0.86rem;}
 .bank-row:last-of-type{border-bottom:none;}
 .bank-label{color:var(--text-light);font-size:0.78rem;}
-.bank-value{font-weight:700;color:var(--text);}
+.bank-value{font-weight:700;}
 .bank-row.total-row{border-top:1.5px solid var(--gborder);border-bottom:none;margin-top:8px;padding-top:12px;}
 .bank-row.total-row .bank-value{font-size:1.05rem;color:var(--g1);}
-.bank-note{margin-top:16px;background:var(--gpale);border-left:3px solid var(--g2);border-radius:0 12px 12px 0;padding:12px 14px;font-size:0.8rem;color:var(--text-mid);line-height:1.8;text-align:left;max-width:460px;margin-left:auto;margin-right:auto;}
-
+.bank-note{margin-top:16px;background:var(--gpale);border-left:3px solid var(--g2);border-radius:0 12px 12px 0;padding:12px 14px;font-size:0.8rem;color:var(--text-mid);line-height:1.8;max-width:460px;margin-left:auto;margin-right:auto;}
 footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--text-light);}
-
-/* ── MOBILE ── */
 @media(max-width:900px){
   .page-layout{grid-template-columns:1fr;}
   .sidebar{position:static;order:2;}
@@ -194,176 +162,131 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
 }
 @media(max-width:600px){
   .row-2{grid-template-columns:1fr;}
-  .delivery-options{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
-
 <header class="hero">
   <div class="hero-deco" aria-hidden="true">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 2C20 2 6 10 6 24C6 32 12 36 20 38C28 36 34 32 34 24C34 10 20 2 20 2Z" fill="white"/>
-      <line x1="20" y1="38" x2="20" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:scale(0.7) translateX(10px)">
-      <path d="M20 2C20 2 6 10 6 24C6 32 12 36 20 38C28 36 34 32 34 24C34 10 20 2 20 2Z" fill="white"/>
-      <line x1="20" y1="38" x2="20" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
+    <svg viewBox="0 0 40 40" fill="none"><path d="M20 2C20 2 6 10 6 24C6 32 12 36 20 38C28 36 34 32 34 24C34 10 20 2 20 2Z" fill="white"/><line x1="20" y1="38" x2="20" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 40 40" fill="none" style="transform:scale(0.7) translateX(10px)"><path d="M20 2C20 2 6 10 6 24C6 32 12 36 20 38C28 36 34 32 34 24C34 10 20 2 20 2Z" fill="white"/><line x1="20" y1="38" x2="20" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
   </div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">🌱 北海道産 朝どれ直逄</div>
+      <div class="hero-badge">&#x1F331; 北海道産 朝どれ直送</div>
       <h1><span>NISHIOKA FARM</span>西岡農園</h1>
-      <p class="hero-sub">農園直送のアスパラガスをご自宅へ。<br>採れたての新鮮さをお届けします。</p>
+      <p class="hero-sub">農園直送のアスパラガスをご頚宅へ。<br>採れたての新鮮さをお届けします。</p>
     </div>
     <div class="hero-right">
       <div class="hero-price-box">
         <div class="hero-price-label">アスパラガス</div>
-        <div class="hero-price-value">¥1,200</div>
+        <div class="hero-price-value">&#xA5;1,200</div>
         <div class="hero-price-unit">/ 1 kg（税込）</div>
       </div>
     </div>
   </div>
-  <svg class="hero-wave" viewBox="0 0 1440 36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,36 L0,16 Q360,0 720,20 Q1080,38 1440,12 L1440,36 Z" fill="#fffef8"/>
-  </svg>
+  <svg class="hero-wave" viewBox="0 0 1440 36" preserveAspectRatio="none"><path d="M0,36 L0,16 Q360,0 720,20 Q1080,38 1440,12 L1440,36 Z" fill="#fffef8"/></svg>
 </header>
-
 <div class="product-strip">
   <div class="strip-inner">
-    <div class="strip-item"><span class="strip-label">販売価格（税込）</span><span class="strip-value">¥1,200 / kg</span></div>
-    <div class="strip-item"><span class="strip-label">送料</span><span class="strip-value">¥1,000（1配送先ごでと）</span></div>
-    <div class="strip-item"><span class="strip-label">最小注文</span><span class="strip-value">0.5 kg〜</span></div>
+    <div class="strip-item"><span class="strip-label">販売価格（税込）</span><span class="strip-value">&#xA5;1,200 / kg</span></div>
+    <div class="strip-item"><span class="strip-label">送料</span><span class="strip-value">&#xA5;1,000（1配送先ごと）</span></div>
+    <div class="strip-item"><span class="strip-label">最小注文</span><span class="strip-value">0.5 kg&#x301C;</span></div>
     <div class="strip-item"><span class="strip-label">支払方法</span><span class="strip-value">銀行振込</span></div>
     <div class="strip-item"><span class="strip-label">発送</span><span class="strip-value">収穫後即日</span></div>
     <div class="strip-features">
-      <span class="strip-feature">🌱 農薬不使用</span>
-      <span class="strip-feature">📦 朝採り即発送</span>
-      <span class="strip-feature">🏔️ 北海道産</span>
+      <span class="strip-feature">&#x1F331; 農薬不使用</span>
+      <span class="strip-feature">&#x1F4E6; 朝採り即発送</span>
+      <span class="strip-feature">&#x1F3D4;&#xFE0F; 北海道産</span>
     </div>
   </div>
 </div>
-
 <div class="page-wrap">
   <div id="form-area">
     <div class="page-layout">
-
-      <!-- ── LEFT: FORM COLUMN ── -->
       <div class="form-column">
-
-        <!-- Step 1: お客様情報（共通） -->
         <div class="step-card">
           <div class="step-header">
             <div class="step-num">1</div>
             <div class="step-title">ご注文者情報（共通）</div>
-            <span class="step-emoji">👤</span>
+            <span class="step-emoji">&#x1F464;</span>
           </div>
           <div class="step-body">
             <div class="row-3">
               <div class="form-group">
                 <label for="name">お名前<span class="required-badge">必須</span></label>
                 <input type="text" id="name" placeholder="例：西岡 太郎" autocomplete="name">
-                <div class="error-msg" id="name-error">⚠ お名前を入力してください</div>
+                <div class="error-msg" id="name-error">&#x26A0; お名前を入力してください</div>
               </div>
               <div class="form-group">
-                <label for="tel">電話番号<span class="required-badge">必須</span></label>
+                <label for="tel">電話番叶<span class="required-badge">必須</span></label>
                 <input type="tel" id="tel" placeholder="例：090-1234-5678" autocomplete="tel">
-                <div class="error-msg" id="tel-error">⚠ 電話番号を入力してください</div>
+                <div class="error-msg" id="tel-error">&#x26A0; 電話番号を入力してください</div>
               </div>
               <div class="form-group">
                 <label for="email">メールアドレス<span class="required-badge">必須</span></label>
                 <input type="email" id="email" placeholder="例：sample@example.com" autocomplete="email">
-                <div class="field-hint">📧 注文確認メールをお送りします</div>
-                <div class="error-msg" id="email-error">⚠ 正しいメールアドレスを入力してください</div>
+                <div class="field-hint">&#x1F4E7; 注文確認メールをお送りします</div>
+                <div class="error-msg" id="email-error">&#x26A0; 正しいメールアドレスを入力してください</div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Orders container -->
         <div id="orders-container"></div>
-
-        <!-- Add order button -->
-        <button type="button" class="add-order-btn" onclick="addOrder()">
-          ＋ 別のお届け先を追加する（複数注文）
-        </button>
-
-        <!-- Submit -->
+        <button type="button" class="add-order-btn" onclick="addOrder()">&#xFF0B; 別のお届け先を追加する（複数注文）</button>
         <div class="step-card">
           <div class="step-body submit-wrap">
             <button type="button" class="btn-submit" id="submit-btn" onclick="submitForm()">
-              <svg class="spinner-svg" id="spinner" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
-                <path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-              <span id="btn-text">✨ 注文を送信する</span>
+              <svg class="spinner-svg" id="spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="3"/><path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+              <span id="btn-text">&#x2728; 注文を送信する</span>
             </button>
-            <p class="btn-note">送信後に振込先をご案内します</p>
+            <p class="btn-note">送信後に振込先をご案内します。</p>
           </div>
         </div>
-
-      </div><!-- /form-column -->
-
-      <!-- ── RIGHT: SIDEBAR ── -->
+      </div>
       <div class="sidebar">
-
-        <!-- Live summary -->
         <div class="summary-panel">
-          <div class="summary-header">🧾 現在の注文内容</div>
-          <div class="summary-body" id="summary-body">
-            <!-- dynamically updated -->
-          </div>
+          <div class="summary-header">&#x1F9FE; 現在の注文内容</div>
+          <div class="summary-body" id="summary-body"></div>
           <div class="summary-total-row">
             <span class="summary-total-label">合計（目安）</span>
-            <span class="summary-total-val">¥<span id="grand-total">2,200</span></span>
+            <span class="summary-total-val">&#xA5;<span id="grand-total">2,200</span></span>
           </div>
-          <div class="summary-shipping-note">※送料 ¥1,000×配送先数を含む</div>
+          <div class="summary-shipping-note">&#x203B;送料 &#xA5;1,000&#xD7;配送先数を含む</div>
         </div>
-
-        <!-- Product info -->
         <div class="info-panel">
-          <div class="info-panel-title">🏦 お振込先</div>
-          <div class="info-row"><span class="info-label">銀行・支店</span><span class="info-val">○○銀行 △△支店</span></div>
+          <div class="info-panel-title">&#x1F3E6; お振込先</div>
+          <div class="info-row"><span class="info-label">銀行・支店</span><span class="info-val">&#x25CB;&#x25CB;銀行 &#x25B3;&#x25B3;支店</span></div>
           <div class="info-row"><span class="info-label">種別</span><span class="info-val">普通預金</span></div>
           <div class="info-row"><span class="info-label">口座番号</span><span class="info-val">1234567</span></div>
           <div class="info-row"><span class="info-label">名義</span><span class="info-val">ニシオカ ノウエン</span></div>
         </div>
-
-      </div><!-- /sidebar -->
-
-    </div><!-- /page-layout -->
-  </div><!-- /form-area -->
-
-  <!-- Thanks screen -->
+      </div>
+    </div>
+  </div>
   <div id="thanks">
-    <div class="thanks-icon">✓</div>
-    <h2>ご注文ありがとうございます！🌿</h2>
+    <div class="thanks-icon">&#x2713;</div>
+    <h2>ご注文ありがとうございます！&#x1F33F;</h2>
     <p class="thanks-msg">ご注文を受け付けました。<br>下記口座へのお振込みをお願いいたします。<br>入金確認後に収穫して発送いたします。</p>
     <div class="bank-box">
-      <div class="bank-box-title">🏦 お振込先</div>
-      <div class="bank-row"><span class="bank-label">銀行・支店</span><span class="bank-value">○○銀行 △△支店</span></div>
+      <div class="bank-box-title">&#x1F3E6; お振込先</div>
+      <div class="bank-row"><span class="bank-label">銀行・支店</span><span class="bank-value">&#x25CB;&#x25CB;銀行 &#x25B3;&#x25B3;支店</span></div>
       <div class="bank-row"><span class="bank-label">種別</span><span class="bank-value">普通預金</span></div>
       <div class="bank-row"><span class="bank-label">口座番号</span><span class="bank-value">1234567</span></div>
       <div class="bank-row"><span class="bank-label">名義</span><span class="bank-value">ニシオカ ノウエン</span></div>
-      <div class="bank-row total-row"><span class="bank-label">お振込み金額（目安）</span><span class="bank-value" id="total-display">—</span></div>
+      <div class="bank-row total-row"><span class="bank-label">お振込み金額（目安）</span><span class="bank-value" id="total-display">&#x2014;</span></div>
     </div>
-    <div class="bank-note">※ 正確な合計金額は改めてご連絡いたします。<br>ご不明な点はお電話またとLINEでお気軽にどうぞ。</div>
+    <div class="bank-note">&#x203B; 正確な合計金額は改めてご連絡いたします。<br>ご不明な点はお電話またにLINEでお気軽にどうぞ。</div>
   </div>
-
-</div><!-- /page-wrap -->
-
-<footer>🌱 © 西岡農園 — ご不明点はお気軽にお問い合わせください</footer>
-
+</div>
+<footer>&#x1F331; &#xA9; 西岡農園 &#x2014; ご不明点はお気軽にお問い合わせください</footer>
 <script>
 const FORM_ACTION='https://docs.google.com/forms/d/e/1FAIpQLScbo8wiWb9iGu225K9TJ4__wUly8OfDpkmiJiRFj-RTp0-OrQ/formResponse';
 const PRICE_PER_KG=1200,SHIPPING=1000;
 const SYMS=['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩'];
-
 let nextId=1;
 const orders=[];
 
-/* ── ORDER MANAGEMENT ── */
 function addOrder(){
   if(orders.length>=10)return;
   const id=nextId++;
@@ -371,10 +294,7 @@ function addOrder(){
   renderOrderCard(id);
   renumberOrders();
   updateSummary();
-  // scroll to new card
-  setTimeout(()=>{
-    document.getElementById('order-card-'+id)?.scrollIntoView({behavior:'smooth',block:'nearest'});
-  },100);
+  setTimeout(()=>document.getElementById('order-card-'+id)?.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
 }
 
 function removeOrder(id){
@@ -388,7 +308,6 @@ function removeOrder(id){
 function renumberOrders(){
   document.querySelectorAll('.order-card').forEach((card,i)=>{
     card.querySelector('.order-sym').textContent=SYMS[i];
-    // hide remove button if only 1 order
     const btn=card.querySelector('.remove-btn');
     if(btn)btn.style.display=orders.length>1?'':'none';
   });
@@ -403,68 +322,157 @@ function renderOrderCard(id){
 }
 
 function orderCardHTML(id){
-  return `
-<div class="step-card order-card" id="order-card-${id}">
-  <div class="step-header">
-    <div class="order-sym"></div>
-    <div class="step-title">お届け先・数量</div>
-    <button class="remove-btn" onclick="removeOrder(${id})" title="削除" style="display:none">✕ 削除</button>
-  </div>
-  <div class="step-body">
-    <div class="row-2 mb-0" style="margin-bottom:13px;">
-      <div class="form-group mb-0">
-        <label>郵便番号<span class="optional-badge">任意</span></label>
-        <input type="text" id="zip-${id}" placeholder="例：060-0001" maxlength="8" autocomplete="postal-code">
-      </div>
-      <div class="flex-end">
-        <button type="button" class="zip-lookup-btn" id="zip-btn-${id}">🔍 住所を自動入力</button>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>住所<span class="required-badge">必須</span></label>
-      <textarea id="address-${id}" placeholder="都道府県から番地まで入力してください&#10;例：北海道札幌市中央区北1条西1丁目1-1" rows="2" autocomplete="street-address"></textarea>
-      <div class="error-msg" id="address-error-${id}">⚠ 住所を入力してください</div>
-    </div>
-    <div class="row-2 mt-2">
-      <div class="form-group mb-0">
-        <label>ご希望のキロ数<span class="required-badge">必須</span></label>
-        <div class="kg-stepper">
-          <button type="button" class="kg-btn" id="kg-minus-${id}" onclick="changeKg(${id},-0.5)">−</button>
-          <input type="number" class="kg-display" id="kg-input-${id}" value="1" min="0.5" max="20" step="0.5"
-            oninput="onKgInput(${id})" onblur="onKgBlur(${id})">
-          <span class="kg-unit">kg</span>
-          <button type="button" class="kg-btn" id="kg-plus-${id}" onclick="changeKg(${id},0.5)">+</button>
-        </div>
-        <div class="kg-presets">
-          <span class="kg-preset-label">よく選ばれる量：</span>
-          ${[1,2,3,5,10].map(v=>`<button type="button" class="kg-preset-btn" id="preset-${id}-${v}" onclick="setKg(${id},${v})">${v} kg</button>`).join('')}
-        </div>
-        <div class="error-msg" id="kg-error-${id}">⚠ キロ数を入力してください（0.5kg〜）</div>
-      </div>
-      <div class="form-group mb-0">
-        <label>備考<span class="optional-badge">任意</span></label>
-        <textarea id="note-${id}" placeholder="アレルギー・その他ご要望など" rows="3" style="min-height:90px;"></textarea>
-      </div>
-    </div>
-    <div class="form-group mt-2">
-      <label>お届け希望時期<span class="optional-badge">任意</span></label>
-      <div class="delivery-options">
-        <label class="delivery-label"><input type="radio" name="delivery-${id}" value="なるべく早く"><span>なるべく早く</span></label>
-        <label class="delivery-label"><input type="radio" name="delivery-${id}" value="今週中"><span>今週中</span></label>
-        <label class="delivery-label"><input type="radio" name="delivery-${id}" value="来週"><span>来週</span></label>
-        <label class="delivery-label"><input type="radio" name="delivery-${id}" value="日付指定"><span>日付を指定する</span></label>
-      </div>
-      <div class="date-picker-wrap" id="date-picker-wrap-${id}">
-        <div class="date-picker-inner">
-          <label>📅 ご希望の日付を選んでください</label>
-          <input type="date" id="delivery-date-${id}" min="">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>`;
+  return '<div class="step-card order-card" id="order-card-'+id+'">'
+    +'<div class="step-header"><div class="order-sym"></div><div class="step-title">お届け先・数量</div>'
+    +'<button class="remove-btn" onclick="removeOrder('+id+')" style="display:none">✕ 削除</button></div>'
+    +'<div class="step-body">'
+    +'<div class="row-2 mb-0" style="margin-bottom:13px;">'
+    +'<div class="form-group mb-0"><label>郵便番号<span class="optional-badge">任意</span></label>'
+    +'<input type="text" id="zip-'+id+'" placeholder="例：060-0001" maxlength="8" autocomplete="postal-code"></div>'
+    +'<div class="flex-end"><button type="button" class="zip-lookup-btn" id="zip-btn-'+id+'">🔍 住所を郾動入力</button></div></div>'
+    +'<div class="form-group"><label>住所<span class="required-badge">必須</span></label>'
+    +'<textarea id="address-'+id+'" placeholder="都道府県から番地まで入力してください&#10;例：北海道札幌市中央区北１条西１丁目1-1" rows="2" autocomplete="street-address"></textarea>'
+    +'<div class="error-msg" id="address-error-'+id+'">⚠ 住所を入力してください</div></div>'
+    +'<div class="row-2 mt-2">'
+    +'<div class="form-group mb-0"><label>ご希望のキロ数<span class="required-badge">必須</span></label>'
+    +'<div class="kg-stepper"><button type="button" class="kg-btn" id="kg-minus-'+id+'" onclick="changeKg('+id+',-0.5)">−</button>'
+    +'<input type="number" class="kg-display" id="kg-input-'+id+'" value="1" min="0.5" max="20" step="0.5" oninput="onKgInput('+id+')" onblur="onKgBlur('+id+')">'
+    +'<span class="kg-unit">kg</span><button type="button" class="kg-btn" id="kg-plus-'+id+'" onclick="changeKg('+id+',0.5)">+</button></div>'
+    +'<div class="kg-presets"><span class="kg-preset-label">よく選ばれる量：</span>'
+    +'<button type="button" class="kg-preset-btn" id="preset-'+id+'-1" onclick="setKg('+id+',1)">1 kg</button>'
+    +'<button type="button" class="kg-preset-btn" id="preset-'+id+'-2" onclick="setKg('+id+',2)">2 kg</button>'
+    +'<button type="button" class="kg-preset-btn" id="preset-'+id+'-3" onclick="setKg('+id+',3)">3 kg</button>'
+    +'<button type="button" class="kg-preset-btn" id="preset-'+id+'-5" onclick="setKg('+id+',5)">5 kg</button>'
+    +'<button type="button" class="kg-preset-btn" id="preset-'+id+'-10" onclick="setKg('+id+',10)">10 kg</button></div>'
+    +'<div class="error-msg" id="kg-error-'+id+'">⚠ キロ数を入力してください（0.5kg〜）</div></div>'
+    +'<div class="form-group mb-0"><label>備考<span class="optional-badge">任意</span></label>'
+    +'<textarea id="note-'+id+'" placeholder="アレルギー・その他ご要望など" rows="3" style="min-height:90px;"></textarea></div></div>'
+    +'<div class="form-group mt-2"><label>お届け希望時期<span class="optional-badge">任意</span></label>'
+    +'<div class="delivery-options">'
+    +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="なるべく早く</span></label>'
+    +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="今週中"><span>今週中</span></label>'
+    +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="来週"><span>来週</span></label>'
+    +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="日付指定"><span>日付を指定する</span></label>'
+    +'</div>'
+    +'<div class="date-picker-wrap" id="date-picker-wrap-'+id+'">'
+    +'<div class="date-picker-inner"><label>&#x1F4C5; ご希望の日付を選んでください</label>'
+    +'<input type="date" id="delivery-date-'+id+'" min=""></div></div></div>'
+    +'</div></div>';
 }
 
 function initOrderCard(id){
-  // min date
   const minDate=new Date();
+  minDate.setDate(minDate.getDate()+2);
+  document.getElementById('delivery-date-'+id).min=minDate.toISOString().split('T')[0];
+  document.querySelectorAll('input[name="delivery-'+id+'"]').forEach(r=>{
+    r.addEventListener('change',()=>{
+      const w=document.getElementById('date-picker-wrap-'+id);
+      if(r.value==='日付指定'&&r.checked){
+        w.classList.add('open');
+        setTimeout(()=>document.getElementById('delivery-date-'+id).focus(),350);
+      }else{w.classList.remove('open');}
+    });
+  });
+  document.getElementById('zip-'+id).addEventListener('input',function(){
+    let v=this.value.replace(/[^0-9]/g,'');
+    if(v.length>3)v=v.slice(0,3)+'-'+v.slice(3,7);
+    this.value=v;
+  });
+  document.getElementById('zip-btn-'+id).addEventListener('click',async()=>{
+    const zip=document.getElementById('zip-'+id).value.replace(/[^0-9]/g,'');
+    if(zip.length!==7){alert('郵便番号を7桁で入力してください');return;}
+    try{
+      const r=await fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode='+zip);
+      const d=await r.json();
+      if(d.results){const a=d.results[0];document.getElementById('address-'+id).value=a.address1+a.address2+a.address3;updateSummary();}
+      else{alert('住所が見つかりませんでした。手動で入力してください。');}
+    }catch{alert('住所の取得に失敗しました。手動で入力してください。');}
+  });
+  document.getElementById('address-'+id).addEventListener('input',updateSummary);
+  setKg(id,1);
+}
+
+function getKg(id){return parseFloat(document.getElementById('kg-input-'+id).value)||0;}
+function setKg(id,val){
+  val=Math.max(0.5,Math.min(20,Math.round(val*2)/2));
+  document.getElementById('kg-input-'+id).value=val;
+  document.getElementById('kg-minus-'+id).disabled=val<=0.5;
+  document.getElementById('kg-plus-'+id).disabled=val>=20;
+  document.getElementById('kg-error-'+id).classList.remove('show');
+  [1,2,3,5,10].forEach(v=>{const btn=document.getElementById('preset-'+id+'-'+v);if(btn)btn.classList.toggle('active',v===val);});
+  updateSummary();
+}
+function changeKg(id,d){setKg(id,getKg(id)+d);}
+function onKgInput(id){updateSummary();}
+function onKgBlur(id){let v=getKg(id);if(!v||v<0.5)v=0.5;if(v>20)v=20;setKg(id,v);}
+
+function updateSummary(){
+  const body=document.getElementById('summary-body');
+  let html='',grandTotal=0;
+  orders.forEach((o,i)=>{
+    const id=o.id,kg=getKg(id)||1,total=Math.round(kg*PRICE_PER_KG)+SHIPPING;
+    grandTotal+=total;
+    const addr=(document.getElementById('address-'+id)?.value||'').trim();
+    const addrShort=addr?addr.slice(0,22)+(addr.length>22?'…':''):'（住所未入力）';
+    html+='<div class="summary-order-row"><div class="summary-order-label"><span class="summary-order-name">注文'+SYMS[i]+'</span><span class="summary-order-price">&#xA5;'+total.toLocaleString()+'</span></div><div class="summary-order-detail">'+kg+'kg ／ '+addrShort+'</div></div>';
+  });
+  body.innerHTML=html;
+  document.getElementById('grand-total').textContent=grandTotal.toLocaleString();
+}
+
+function validate(){
+  let ok=true;
+  ['name','tel'].forEach(id=>{
+    const el=document.getElementById(id),er=document.getElementById(id+'-error');
+    if(!el.value.trim()){el.classList.add('invalid');er.classList.add('show');ok=false;}
+    else{el.classList.remove('invalid');er.classList.remove('show');}
+  });
+  const em=document.getElementById('email'),ee=document.getElementById('email-error');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){em.classList.add('invalid');ee.classList.add('show');ok=false;}
+  else{em.classList.remove('invalid');ee.classList.remove('show');}
+  orders.forEach(o=>{
+    const id=o.id;
+    const addr=document.getElementById('address-'+id),ae=document.getElementById('address-error-'+id);
+    if(!addr.value.trim()){addr.classList.add('invalid');ae.classList.add('show');ok=false;}
+    else{addr.classList.remove('invalid');ae.classList.remove('show');}
+    const kg=getKg(id),ke=document.getElementById('kg-error-'+id),ki=document.getElementById('kg-input-'+id);
+    if(!kg||kg<0.5){ki.classList.add('invalid');ke.classList.add('show');ok=false;}
+    else{ki.classList.remove('invalid');ke.classList.remove('show');}
+  });
+  return ok;
+}
+
+async function submitForm(){
+  if(!validate()){document.querySelector('.invalid')?.scrollIntoView({behavior:'smooth',block:'center'});return;}
+  const btn=document.getElementById('submit-btn'),sp=document.getElementById('spinner'),bt=document.getElementById('btn-text');
+  btn.disabled=true;sp.style.display='block';bt.textContent='送信中...';
+  const name=document.getElementById('name').value.trim();
+  const tel=document.getElementById('tel').value.trim();
+  const email=document.getElementById('email').value.trim();
+  let grandTotal=0;
+  for(const o of orders){
+    const id=o.id,kg=getKg(id);
+    const delivery=document.querySelector('input[name="delivery-'+id+'"]:checked')?.value||'なるべく早く';
+    const deliveryDate=document.getElementById('delivery-date-'+id).value;
+    const note=document.getElementById('note-'+id).value.trim();
+    const zip=document.getElementById('zip-'+id).value.trim();
+    const address=document.getElementById('address-'+id).value.trim();
+    const noteAll=['数量：'+kg+'kg','メール：'+email,deliveryDate&&delivery==='日付指定'?'希望日：'+deliveryDate:'',note].filter(Boolean).join('
+');
+    const kgOpts=[1,2,3,5];
+    const kgStr=(kgOpts.includes(kg)?kg:kgOpts.reduce((a,b)=>Math.abs(b-kg)<Math.abs(a-kg)?b:a))+'kg';
+    const p=new URLSearchParams();
+    p.append('entry.521673895',name);p.append('entry.1524323363',tel);p.append('entry.160643445',zip);
+    p.append('entry.380317365',address);p.append('entry.1808334683',kgStr);p.append('entry.44015635',delivery);p.append('entry.1718563261',noteAll);
+    try{await fetch(FORM_ACTION,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:p.toString()});}catch(e){}
+    grandTotal+=Math.round(kg*PRICE_PER_KG)+SHIPPING;
+  }
+  document.getElementById('total-display').textContent='&#xA5;'+grandTotal.toLocaleString();
+  document.getElementById('form-area').style.display='none';
+  const t=document.getElementById('thanks');t.style.display='block';t.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+addOrder();
+</script>
+</body>
+</html>
