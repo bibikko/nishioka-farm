@@ -43,7 +43,7 @@ body{font-family:'Zen Maru Gothic',sans-serif;background:var(--cream);color:var(
 .strip-item+.strip-item{padding-left:20px;border-left:1.5px dashed var(--gborder);}
 .strip-label{font-size:0.67rem;color:var(--text-light);margin-bottom:2px;font-weight:500;}
 .strip-value{font-size:0.88rem;font-weight:700;color:var(--text);white-space:nowrap;}
-.strip-features{margin-left:auto;display:flex;align-items:center;gap:16px;padding:10px 0;}
+.strip-features{margin-left:auto;display:flex;align-items:center;gap:16px;padding:10px o;}
 .strip-feature{font-size:0.78rem;color:var(--text-mid);font-weight:500;}
 .page-wrap{padding:24px 28px 48px;max-width:1216px;margin:0 auto;}
 .page-layout{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;}
@@ -173,9 +173,9 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
   </div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">&#x1F331; 北海道産 朝どれ直送</div>
+      <div class="hero-badge">&#x1F331; 北海道産 朝どれ直逇</div>
       <h1><span>NISHIOKA FARM</span>西岡農園</h1>
-      <p class="hero-sub">農園直送のアスパラガスをご頚宅へ。<br>採れたての新鮮さをお届けします。</p>
+      <p class="hero-sub">農園直送のアスパラガスをご自宅へ。<br>採れたての新鮮さをお届けします。</p>
     </div>
     <div class="hero-right">
       <div class="hero-price-box">
@@ -216,10 +216,10 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
               <div class="form-group">
                 <label for="name">お名前<span class="required-badge">必須</span></label>
                 <input type="text" id="name" placeholder="例：西岡 太郎" autocomplete="name">
-                <div class="error-msg" id="name-error">&#x26A0; お名前を入力してください</div>
+                <div class="error-msg" id="name-error">&#x26A0; お名前を入力してくださぉ</div>
               </div>
               <div class="form-group">
-                <label for="tel">電話番叶<span class="required-badge">必須</span></label>
+                <label for="tel">電話番号<span class="required-badge">必須</span></label>
                 <input type="tel" id="tel" placeholder="例：090-1234-5678" autocomplete="tel">
                 <div class="error-msg" id="tel-error">&#x26A0; 電話番号を入力してください</div>
               </div>
@@ -240,7 +240,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
               <svg class="spinner-svg" id="spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="3"/><path d="M12 2a10 10 0 0 1 10 10" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
               <span id="btn-text">&#x2728; 注文を送信する</span>
             </button>
-            <p class="btn-note">送信後に振込先をご案内します。</p>
+            <p class="btn-note">送信後に振込先をご案内します</p>
           </div>
         </div>
       </div>
@@ -259,7 +259,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
           <div class="info-row"><span class="info-label">銀行・支店</span><span class="info-val">&#x25CB;&#x25CB;銀行 &#x25B3;&#x25B3;支店</span></div>
           <div class="info-row"><span class="info-label">種別</span><span class="info-val">普通預金</span></div>
           <div class="info-row"><span class="info-label">口座番号</span><span class="info-val">1234567</span></div>
-          <div class="info-row"><span class="info-label">名義</span><span class="info-val">ニシオカ ノウエン</span></div>
+          <div class="info-row"><span class="info-label">名義</span><span class="info-val">ニシオオ ノウエン</span></div>
         </div>
       </div>
     </div>
@@ -329,7 +329,7 @@ function orderCardHTML(id){
     +'<div class="row-2 mb-0" style="margin-bottom:13px;">'
     +'<div class="form-group mb-0"><label>郵便番号<span class="optional-badge">任意</span></label>'
     +'<input type="text" id="zip-'+id+'" placeholder="例：060-0001" maxlength="8" autocomplete="postal-code"></div>'
-    +'<div class="flex-end"><button type="button" class="zip-lookup-btn" id="zip-btn-'+id+'">🔍 住所を郾動入力</button></div></div>'
+    +'<div class="flex-end"><button type="button" class="zip-lookup-btn" id="zip-btn-'+id+'">🔍 住所を自動入力</button></div></div>'
     +'<div class="form-group"><label>住所<span class="required-badge">必須</span></label>'
     +'<textarea id="address-'+id+'" placeholder="都道府県から番地まで入力してください&#10;例：北海道札幌市中央区北１条西１丁目1-1" rows="2" autocomplete="street-address"></textarea>'
     +'<div class="error-msg" id="address-error-'+id+'">⚠ 住所を入力してください</div></div>'
@@ -369,7 +369,9 @@ function initOrderCard(id){
       const w=document.getElementById('date-picker-wrap-'+id);
       if(r.value==='日付指定'&&r.checked){
         w.classList.add('open');
-        setTimeout(()=>document.getElementById('delivery-date-'+id).focus(),350);
+   cked){
+        w.classList.add('open');
+ À2     setTimeout(()=>document.getElementById('delivery-date-'+id).focus(),350);
       }else{w.classList.remove('open');}
     });
   });
@@ -457,8 +459,7 @@ async function submitForm(){
     const note=document.getElementById('note-'+id).value.trim();
     const zip=document.getElementById('zip-'+id).value.trim();
     const address=document.getElementById('address-'+id).value.trim();
-    const noteAll=['数量：'+kg+'kg','メール：'+email,deliveryDate&&delivery==='日付指定'?'希望日：'+deliveryDate:'',note].filter(Boolean).join('
-');
+    const noteAll=['数量：'+kg+'kg','メール：'+email,deliveryDate&&delivery==='日付指定'?'希望日：'+deliveryDate:'',note].filter(Boolean).join('\n');
     const kgOpts=[1,2,3,5];
     const kgStr=(kgOpts.includes(kg)?kg:kgOpts.reduce((a,b)=>Math.abs(b-kg)<Math.abs(a-kg)?b:a))+'kg';
     const p=new URLSearchParams();
@@ -475,4 +476,4 @@ async function submitForm(){
 addOrder();
 </script>
 </body>
-</html>
+</html
