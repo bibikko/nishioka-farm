@@ -281,7 +281,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
 </div>
 <footer>&#x1F331; &#xA9; 西岡農園 &#x2014; ご不明点はお気軽にお問い合わせください</footer>
 <script>
-const FORM_ACTION='https://docs.google.com/forms/d/e/1FAIpQLScbo8wiWb9iGu225K9TJ4__wUly8OfDpkmiJiRFj-RTp0-OrQ/formResponse';
+const FORM_ACTION='https://docs.google.com/forms/d/e/1FAIpQLSeil_5AZIWeODcoYbiryAwbTPdMXoft1s1Wtf-KJJ7w9XNudg/formResponse';
 const PRICE_PER_KG=1200,SHIPPING=1000;
 const SYMS=['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩'];
 let nextId=1;
@@ -461,8 +461,8 @@ async function submitForm(){
     const kgOpts=[1,2,3,5];
     const kgStr=(kgOpts.includes(kg)?kg:kgOpts.reduce((a,b)=>Math.abs(b-kg)<Math.abs(a-kg)?b:a))+'kg';
     const p=new URLSearchParams();
-    p.append('entry.521673895',name);p.append('entry.1524323363',tel);p.append('entry.160643445',zip);
-    p.append('entry.380317365',address);p.append('entry.1808334683',kgStr);p.append('entry.44015635',delivery);p.append('entry.1718563261',noteAll);
+    p.append('entry.252231391',name);p.append('entry.1079909920',tel);p.append('entry.662619328',zip);
+    p.append('entry.1826604638',address);p.append('entry.202832745',kgStr);p.append('entry.837344562',delivery);p.append('entry.1369859049',noteAll);
     try{await fetch(FORM_ACTION,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:p.toString()});}catch(e){}
     grandTotal+=Math.round(kg*PRICE_PER_KG)+SHIPPING;
   }
