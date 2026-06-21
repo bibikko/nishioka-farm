@@ -43,7 +43,7 @@ body{font-family:'Zen Maru Gothic',sans-serif;background:var(--cream);color:var(
 .strip-item+.strip-item{padding-left:20px;border-left:1.5px dashed var(--gborder);}
 .strip-label{font-size:0.67rem;color:var(--text-light);margin-bottom:2px;font-weight:500;}
 .strip-value{font-size:0.88rem;font-weight:700;color:var(--text);white-space:nowrap;}
-.strip-features{margin-left:auto;display:flex;align-items:center;gap:16px;padding:10px o;}
+.strip-features{margin-left:auto;display:flex;align-items:center;gap:16px;padding:10px 0;}
 .strip-feature{font-size:0.78rem;color:var(--text-mid);font-weight:500;}
 .page-wrap{padding:24px 28px 48px;max-width:1216px;margin:0 auto;}
 .page-layout{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;}
@@ -173,7 +173,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
   </div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">&#x1F331; 北海道産 朝どれ直逇</div>
+      <div class="hero-badge">&#x1F331; 北海道産 朝どれ直送</div>
       <h1><span>NISHIOKA FARM</span>西岡農園</h1>
       <p class="hero-sub">農園直送のアスパラガスをご自宅へ。<br>採れたての新鮮さをお届けします。</p>
     </div>
@@ -216,7 +216,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
               <div class="form-group">
                 <label for="name">お名前<span class="required-badge">必須</span></label>
                 <input type="text" id="name" placeholder="例：西岡 太郎" autocomplete="name">
-                <div class="error-msg" id="name-error">&#x26A0; お名前を入力してくださぉ</div>
+                <div class="error-msg" id="name-error">&#x26A0; お名前を入力してください</div>
               </div>
               <div class="form-group">
                 <label for="tel">電話番号<span class="required-badge">必須</span></label>
@@ -259,7 +259,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
           <div class="info-row"><span class="info-label">銀行・支店</span><span class="info-val">&#x25CB;&#x25CB;銀行 &#x25B3;&#x25B3;支店</span></div>
           <div class="info-row"><span class="info-label">種別</span><span class="info-val">普通預金</span></div>
           <div class="info-row"><span class="info-label">口座番号</span><span class="info-val">1234567</span></div>
-          <div class="info-row"><span class="info-label">名義</span><span class="info-val">ニシオオ ノウエン</span></div>
+          <div class="info-row"><span class="info-label">名義</span><span class="info-val">ニシオカ ノウエン</span></div>
         </div>
       </div>
     </div>
@@ -276,7 +276,7 @@ footer{text-align:center;padding:14px 20px 24px;font-size:0.78rem;color:var(--te
       <div class="bank-row"><span class="bank-label">名義</span><span class="bank-value">ニシオカ ノウエン</span></div>
       <div class="bank-row total-row"><span class="bank-label">お振込み金額（目安）</span><span class="bank-value" id="total-display">&#x2014;</span></div>
     </div>
-    <div class="bank-note">&#x203B; 正確な合計金額は改めてご連絡いたします。<br>ご不明な点はお電話またにLINEでお気軽にどうぞ。</div>
+    <div class="bank-note">&#x203B; 正確な合計金額は改めてご連絡いたします。<br>ご不明な点はお電話またはLINEでお気軽にどうぞ。</div>
   </div>
 </div>
 <footer>&#x1F331; &#xA9; 西岡農園 &#x2014; ご不明点はお気軽にお問い合わせください</footer>
@@ -349,7 +349,7 @@ function orderCardHTML(id){
     +'<textarea id="note-'+id+'" placeholder="アレルギー・その他ご要望など" rows="3" style="min-height:90px;"></textarea></div></div>'
     +'<div class="form-group mt-2"><label>お届け希望時期<span class="optional-badge">任意</span></label>'
     +'<div class="delivery-options">'
-    +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="なるべく早く</span></label>'
+    +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="なるべく早く"><span>なるべく早く</span></label>'
     +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="今週中"><span>今週中</span></label>'
     +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="来週"><span>来週</span></label>'
     +'<label class="delivery-label"><input type="radio" name="delivery-'+id+'" value="日付指定"><span>日付を指定する</span></label>'
@@ -369,9 +369,7 @@ function initOrderCard(id){
       const w=document.getElementById('date-picker-wrap-'+id);
       if(r.value==='日付指定'&&r.checked){
         w.classList.add('open');
-   cked){
-        w.classList.add('open');
- À2     setTimeout(()=>document.getElementById('delivery-date-'+id).focus(),350);
+        setTimeout(()=>document.getElementById('delivery-date-'+id).focus(),350);
       }else{w.classList.remove('open');}
     });
   });
@@ -476,4 +474,4 @@ async function submitForm(){
 addOrder();
 </script>
 </body>
-</html
+</html>
