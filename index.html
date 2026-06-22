@@ -457,11 +457,11 @@ async function submitForm(){
     const note=document.getElementById('note-'+id).value.trim();
     const zip=document.getElementById('zip-'+id).value.trim();
     const address=document.getElementById('address-'+id).value.trim();
-    const noteAll=['数量：'+kg+'kg','メール：'+email,deliveryDate&&delivery==='日付指定'?'希望日：'+deliveryDate:'',note].filter(Boolean).join('\n');
+    const noteAll=[deliveryDate&&delivery==='日付指定'?'希望日：'+deliveryDate:'',note].filter(Boolean).join('\n');
     const kgOpts=[1,2,3,5];
     const kgStr=(kgOpts.includes(kg)?kg:kgOpts.reduce((a,b)=>Math.abs(b-kg)<Math.abs(a-kg)?b:a))+'kg';
     const p=new URLSearchParams();
-    p.append('name',name);p.append('tel',tel);p.append('zip',zip);
+    p.append('name',name);p.append('tel',tel);p.append('email',email);p.append('zip',zip);
     p.append('address',address);p.append('kg',kgStr);p.append('delivery',delivery);p.append('note',noteAll);
     try{await fetch(FORM_ACTION,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:p.toString()});}catch(e){}
     grandTotal+=Math.round(kg*PRICE_PER_KG)+SHIPPING;
